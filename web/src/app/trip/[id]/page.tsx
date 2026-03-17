@@ -119,11 +119,15 @@ export default function TripDetailPage() {
               </div>
               <div className="flex justify-between items-center text-sm">
                 <span className="text-slate-400">Latitude</span>
-                <span className="font-mono text-slate-700">{trip.locations[0]?.latitude.toFixed(6)}</span>
+                <span className="font-mono text-slate-700">
+                  {trip.locations.length > 0 ? trip.locations[0].latitude.toFixed(6) : 'N/A'}
+                </span>
               </div>
               <div className="flex justify-between items-center text-sm">
                 <span className="text-slate-400">Longitude</span>
-                <span className="font-mono text-slate-700">{trip.locations[0]?.longitude.toFixed(6)}</span>
+                <span className="font-mono text-slate-700">
+                  {trip.locations.length > 0 ? trip.locations[0].longitude.toFixed(6) : 'N/A'}
+                </span>
               </div>
            </div>
         </section>
@@ -139,11 +143,15 @@ export default function TripDetailPage() {
               </div>
               <div className="flex justify-between items-center text-sm">
                 <span className="text-slate-400">Latitude</span>
-                <span className="font-mono text-slate-700">{trip.locations[trip.locations.length-1]?.latitude.toFixed(6)}</span>
+                <span className="font-mono text-slate-700">
+                  {trip.locations.length > 0 ? trip.locations[trip.locations.length - 1].latitude.toFixed(6) : 'N/A'}
+                </span>
               </div>
               <div className="flex justify-between items-center text-sm">
                 <span className="text-slate-400">Longitude</span>
-                <span className="font-mono text-slate-700">{trip.locations[trip.locations.length-1]?.longitude.toFixed(6)}</span>
+                <span className="font-mono text-slate-700">
+                  {trip.locations.length > 0 ? trip.locations[trip.locations.length - 1].longitude.toFixed(6) : 'N/A'}
+                </span>
               </div>
            </div>
         </section>
