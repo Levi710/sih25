@@ -79,7 +79,7 @@ export default function AnalyticsPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Mode Distribution */}
-        <section className="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm space-y-8">
+        <section id="mode-split-section" className="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm space-y-8">
            <div className="flex items-center justify-between">
               <h2 className="text-xl font-bold text-slate-800 flex items-center gap-3">
                  <PieChart className="w-6 h-6 text-indigo-500" /> Mode Split
@@ -154,11 +154,14 @@ export default function AnalyticsPage() {
                </span>
                of CO2 emissions this month.
             </p>
-            <div className="flex justify-center md:justify-start">
-               <button className="bg-white text-indigo-600 px-8 py-4 rounded-2xl font-black shadow-lg shadow-indigo-800/20 hover:scale-105 transition-transform uppercase tracking-widest text-sm">
-                  Full Eco Report
-               </button>
-            </div>
+             <div className="flex justify-center md:justify-start">
+                <button 
+                  onClick={() => document.getElementById('mode-split-section')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="bg-white text-indigo-600 px-8 py-4 rounded-2xl font-black shadow-lg shadow-indigo-800/20 hover:scale-105 transition-transform uppercase tracking-widest text-sm"
+                >
+                   Full Eco Report
+                </button>
+             </div>
          </div>
          <div className="relative">
             <div className="w-48 h-48 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-3xl border border-white/20 animate-pulse">

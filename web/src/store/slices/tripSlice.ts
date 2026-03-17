@@ -110,6 +110,10 @@ const tripSlice = createSlice({
     },
     clearError: (state) => {
       state.error = null;
+    },
+    clearTrips: (state) => {
+      state.trips = [];
+      localStorage.removeItem('trips');
     }
   },
   extraReducers: (builder) => {
@@ -136,5 +140,5 @@ const tripSlice = createSlice({
   },
 });
 
-export const { addPoint, loadTrips, clearError, deleteTrip } = tripSlice.actions;
+export const { addPoint, loadTrips, clearError, deleteTrip, clearTrips } = tripSlice.actions;
 export default tripSlice.reducer;

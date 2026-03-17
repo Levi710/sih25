@@ -179,7 +179,9 @@ export default function Home() {
                 <History className="w-5 h-5 text-indigo-500" />
                 Recent Journeys
               </h3>
-              <button className="text-sm font-medium text-indigo-600 hover:underline">View All</button>
+              <Link href="/history">
+                <button className="text-sm font-medium text-indigo-600 hover:underline">View All</button>
+              </Link>
             </div>
             
             <div className="space-y-4">
@@ -270,9 +272,11 @@ export default function Home() {
               <p className="text-slate-400 text-sm leading-relaxed mb-6">
                 Our AI model has high confidence in your walking patterns. Keep it up for better health!
               </p>
-              <button className="bg-white text-slate-900 px-6 py-2.5 rounded-xl font-bold text-sm tracking-tight hover:bg-slate-100 transition-colors">
-                View Reports
-              </button>
+              <Link href="/analytics">
+                <button className="bg-white text-slate-900 px-6 py-2.5 rounded-xl font-bold text-sm tracking-tight hover:bg-slate-100 transition-colors">
+                  View Reports
+                </button>
+              </Link>
             </div>
             <Activity className="absolute bottom-[-20px] right-[-20px] w-32 h-32 text-white opacity-[0.05] group-hover:scale-110 transition-transform" />
           </section>

@@ -8,8 +8,9 @@ import { signOut } from '@/store/slices/authSlice';
 import { syncTripsThunk } from '@/store/slices/tripSlice';
 import { 
   User, Settings, Shield, Bell, Database, 
-  LogOut, ChevronRight, BarChart3, Download, Trash2, Github, Cloud, CheckCircle
+  LogOut, ChevronRight, BarChart3, Download, Trash2, Github, Cloud, CheckCircle, ExternalLink
 } from 'lucide-react';
+import { clearTrips } from '@/store/slices/tripSlice';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
@@ -46,6 +47,11 @@ export default function ProfilePage() {
       a.click();
       setIsExporting(false);
     }, 1500);
+  };
+  const handleWipeData = () => {
+    if (confirm("THIS IS IRREVERSIBLE. Are you sure you want to wipe ALL travel history?")) {
+      dispatch(clearTrips());
+    }
   };
 
   return (
@@ -186,7 +192,10 @@ export default function ProfilePage() {
                 <ChevronRight className="w-5 h-5 text-slate-300" />
              </button>
 
-             <button className="w-full flex items-center justify-between px-8 py-5 hover:bg-rose-50 transition-colors group text-left">
+             <button 
+              onClick={handleWipeData}
+              className="w-full flex items-center justify-between px-8 py-5 hover:bg-rose-50 transition-colors group text-left"
+             >
                 <div className="flex items-center gap-4">
                   <div className="bg-rose-50 p-2.5 rounded-xl">
                     <Trash2 className="w-5 h-5 text-rose-600" />
@@ -205,7 +214,16 @@ export default function ProfilePage() {
       <div className="text-center pt-10">
         <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] mb-4">Developed for SIH 2025</p>
         <div className="flex justify-center gap-6">
-           <Github className="w-5 h-5 text-slate-300 hover:text-slate-900 cursor-pointer transition-colors" />
+           <a 
+            href="http://github.com/Levi710/sih25" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-slate-300 hover:text-slate-900 transition-colors"
+           >
+             <Github className="w-5 h-5" />
+             <span className="text-[10px] font-bold">SOURCE</span>
+             <ExternalLink className="w-3 h-3" />
+           </a>
         </div>
       </div>
     </div>
