@@ -8,6 +8,7 @@ import { signInAnonymously } from '@/store/slices/authSlice';
 import { Play, Square, MapPin, Navigation, History, User, Activity, Clock, CheckCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 export default function Home() {
   const dispatch = useDispatch();
