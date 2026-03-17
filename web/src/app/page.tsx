@@ -117,7 +117,9 @@ export default function Home() {
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
                   <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Accuracy</span>
                   <p className="text-2xl font-mono font-bold text-slate-700">
-                    {currentTrip?.locations[currentTrip.locations.length-1]?.accuracy.toFixed(0) || 0}m
+                    {currentTrip && currentTrip.locations.length > 0
+                      ? (currentTrip.locations[currentTrip.locations.length - 1].accuracy || 0).toFixed(0)
+                      : 0}m
                   </p>
                 </div>
                  <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
