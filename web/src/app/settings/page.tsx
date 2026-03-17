@@ -2,6 +2,7 @@
 
 import { Settings, Shield, Bell, Map, Database, Layout, Palette, Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 export default function SettingsPage() {
   const sections = [
@@ -71,8 +72,4 @@ export default function SettingsPage() {
       </div>
     </div>
   );
-}
-
-function cn(...inputs: any[]) {
-  return inputs.filter(Boolean).join(' ');
 }

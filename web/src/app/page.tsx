@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/store';
+import { RootState, AppDispatch } from '@/store';
 import { startTrip, stopTrip, addPoint } from '@/store/slices/tripSlice';
 import { signInAnonymously } from '@/store/slices/authSlice';
 import { Play, Square, MapPin, Navigation, History, User, Activity, Clock, CheckCircle } from 'lucide-react';
@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 export default function Home() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { isTracking, currentTrip, trips } = useSelector((state: RootState) => state.trips);
   const { isAuthenticated, user } = useSelector((state: RootState) => state.auth);
   const [duration, setDuration] = useState(0);
@@ -32,7 +32,7 @@ export default function Home() {
 
   const handleStart = () => {
     if (!isAuthenticated) {
-      dispatch(signInAnonymously() as any);
+      dispatch(signInAnonymously());
     }
 
     if ("geolocation" in navigator) {
@@ -44,7 +44,7 @@ export default function Home() {
           accuracy: position.coords.accuracy || 0,
           speed: position.coords.speed || 0,
         };
-        dispatch(startTrip(point) as any);
+        dispatch(startTrip(point));
 
         // Start watching
         navigator.geolocation.watchPosition((pos) => {
@@ -64,7 +64,7 @@ export default function Home() {
 
   const handleStop = () => {
     if (showStopConfirmation) {
-      dispatch(stopTrip() as any);
+      dispatch(stopTrip());
       setShowStopConfirmation(false);
     } else {
       setShowStopConfirmation(true);

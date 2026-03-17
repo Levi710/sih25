@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { LocationPoint, mlService, TravelMode } from '../../lib/mlService';
 import { cloudSync } from '../../lib/cloudSync';
+import { User } from './authSlice';
 
-interface Trip {
+export interface Trip {
   id: string;
   startTime: number;
   endTime?: number;
@@ -81,10 +82,10 @@ export const stopTrip = createAsyncThunk(
 export const syncTripsThunk = createAsyncThunk(
   'trips/sync',
   async (_, { getState }) => {
-    const state = getState() as { trips: TripState, auth: { user: any } };
+    const state = getState() as { trips: TripState, auth: { user: User | null } };
     const { trips } = state.trips;
     const { user } = state.auth;
-    const result = await cloudSync.syncToCloud(trips, user?.id || 'guest');
+    const result = await cloudSync.syncToCloud(trips, user?.uid || 'guest');
     return result;
   }
 );

@@ -1,6 +1,7 @@
 /**
  * Cloud Sync Service (Mockup for SIH 2025 Demo)
  */
+import type { Trip } from '../store/slices/tripSlice';
 
 export interface SyncResult {
   success: boolean;
@@ -9,7 +10,7 @@ export interface SyncResult {
 }
 
 class CloudSyncService {
-  async syncToCloud(trips: any[], userId: string): Promise<SyncResult> {
+  async syncToCloud(trips: Trip[], userId: string): Promise<SyncResult> {
     // In a real app, this would use fetch() or Firestore SDK
     return new Promise((resolve) => {
       setTimeout(() => {

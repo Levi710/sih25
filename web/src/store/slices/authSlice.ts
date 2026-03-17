@@ -1,7 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+export interface User {
+  uid: string;
+  isAnonymous: boolean;
+  name: string;
+}
+
 interface AuthState {
-  user: any | null;
+  user: User | null;
   isAuthenticated: boolean;
   loading: boolean;
   error: string | null;

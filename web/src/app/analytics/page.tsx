@@ -148,7 +148,7 @@ export default function AnalyticsPage() {
          <div className="flex-1 space-y-6 relative z-10 text-center md:text-left">
             <h2 className="text-4xl font-black">Environmental Impact</h2>
             <p className="text-indigo-100 text-lg font-medium max-w-lg">
-               By using eco-friendly travel modes (walking/cycling), you've saved approximately 
+               By using eco-friendly travel modes (walking/cycling), you&apos;ve saved approximately 
                <span className="text-white font-black underline decoration-indigo-300 decoration-4 underline-offset-8 mx-2">
                  {(stats.totalDistance * 0.12).toFixed(1)} kg
                </span>
